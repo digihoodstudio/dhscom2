@@ -263,20 +263,18 @@
         width: 2.7rem;
         height: 2.7rem;
         flex: none;
-        border-radius: 0.65rem;
-        background: var(--ink);
-        overflow: hidden;
+        border-radius: 50%;
+        background: transparent;
         display: grid;
         place-items: center;
       }
 
       .mark img {
-        position: absolute;
-        inset: 0;
         width: 100%;
         height: 100%;
         border-radius: 50%;
         object-fit: cover;
+        display: block;
       }
 
       .mark span {
@@ -284,10 +282,6 @@
         font-size: 1.15rem;
         color: var(--paper);
         line-height: 1;
-      }
-
-      .site-head .mark {
-        background: var(--paper);
       }
 
       .brand {
@@ -537,10 +531,6 @@
 
       .menu .brand-name i {
         color: var(--ink-soft);
-      }
-
-      .menu .mark {
-        background: var(--paper);
       }
 
       .menu-nav {
