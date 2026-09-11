@@ -424,9 +424,35 @@
         font-weight: 700;
         letter-spacing: -0.02em;
         font-size: clamp(2rem, 6vw, 4.5rem);
+        line-height: 0.92;
         transform: translateY(115%) rotateX(-55deg);
         transform-origin: 50% 100%;
         transition: transform 0.7s var(--ease) 0.1s;
+      }
+
+      .pre-rm {
+        display: inline-block;
+        font-size: 0.32em;
+        font-weight: 500;
+        letter-spacing: 0;
+        line-height: 1;
+        margin-left: 0.14em;
+        vertical-align: top;
+        position: relative;
+        top: 0.08em;
+      }
+
+      .pre-sub {
+        display: block;
+        text-align: center;
+        margin-top: 0.35em;
+        font-size: 0.42em;
+        font-weight: 500;
+        letter-spacing: 0.55em;
+        text-indent: 0.55em;
+        padding-right: 0.55em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
       }
 
       .pre.show .pre-word {
@@ -2129,7 +2155,7 @@
   <body>
     <div class="pre" id="pre" aria-hidden="true">
       <div class="pre-line">
-        <span class="pre-word">DIGIHOOD&reg;</span>
+        <span class="pre-word"><span class="pre-brand">DIGIHOOD<sup class="pre-rm">®</sup></span><span class="pre-sub">STUDIO</span></span>
       </div>
     </div>
 
