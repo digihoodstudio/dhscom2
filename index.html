@@ -1698,6 +1698,14 @@
         color: var(--ink-soft);
       }
 
+      .form-status .form-detail {
+        margin-top: 0.5rem;
+        font-size: 0.78rem;
+        color: var(--ink);
+        opacity: 0.75;
+        word-break: break-word;
+      }
+
       .form-status button {
         margin-top: 0.9rem;
         font-size: 0.78rem;
@@ -2935,6 +2943,7 @@
                 Please try again or email us directly at
                 digihoodstudio@gmail.com
               </p>
+              <p class="form-detail" id="formErrorDetail"></p>
             </div>
 
             <form id="contactForm" novalidate>
@@ -3744,6 +3753,7 @@
         var form = d.getElementById("contactForm");
         var success = d.getElementById("formSuccess");
         var errorBox = d.getElementById("formError");
+        var errorDetail = d.getElementById("formErrorDetail");
         var submitBtn = d.getElementById("submitBtn");
         var btnText = d.getElementById("btnText");
 
@@ -3891,6 +3901,7 @@
         form.addEventListener("submit", async function (e) {
           e.preventDefault();
           errorBox.classList.remove("show");
+          errorDetail.textContent = "";
           validateMsg.classList.remove("show");
           triedSubmit = true;
           syncSelValidity();
@@ -3933,9 +3944,13 @@
               form.style.display = "none";
               success.classList.add("show");
             } else {
+              errorDetail.textContent = result.message
+                ? "Web3Forms: " + result.message
+                : "";
               errorBox.classList.add("show");
             }
           } catch (err) {
+            errorDetail.textContent = "Check your internet connection.";
             errorBox.classList.add("show");
           } finally {
             submitBtn.disabled = false;
