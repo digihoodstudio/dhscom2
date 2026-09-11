@@ -391,11 +391,15 @@
       }
 
       .menu-toggle[aria-expanded="true"] .menu-toggle-bar:first-child {
-        transform: translateY(3.25px) rotate(45deg);
+        transform: translateY(6.5px) rotate(45deg);
+      }
+
+      .menu-toggle[aria-expanded="true"] .menu-toggle-bar:nth-child(2) {
+        opacity: 0;
       }
 
       .menu-toggle[aria-expanded="true"] .menu-toggle-bar:last-child {
-        transform: translateY(-3.25px) rotate(-45deg);
+        transform: translateY(-6.5px) rotate(-45deg);
       }
 
       .pre {
@@ -492,6 +496,10 @@
 
       .menu .brand-name i {
         color: var(--ink-soft);
+      }
+
+      .menu .mark {
+        background: var(--paper);
       }
 
       .menu-nav {
@@ -2204,6 +2212,7 @@
       >
         <span class="menu-toggle-bar"></span>
         <span class="menu-toggle-bar"></span>
+        <span class="menu-toggle-bar"></span>
       </button>
     </header>
 
@@ -2219,11 +2228,14 @@
         <a href="/home" class="brand js-menu-close">
           <span class="mark">
             <img
-              src="digilogo.png"
+              src="digilogo-white.png"
               alt=""
-              onerror="this.style.display = 'none'"
+              onerror="
+                this.classList.add('hide');
+                this.nextElementSibling.classList.remove('hide');
+              "
             />
-            <span>D</span>
+            <span class="hide">D</span>
           </span>
           <span class="brand-name">
             <b>Digihood</b>
