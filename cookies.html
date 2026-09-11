@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Cookie Policy — Digihood Studio</title>
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#1C0509" />
+    <link rel="icon" href="digilogo-white.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --paper: #1c0509;
+        --ink: #f2e7d5;
+        --ink-soft: rgba(242, 231, 213, 0.6);
+        --ink-faint: rgba(242, 231, 213, 0.55);
+        --line: rgba(242, 231, 213, 0.16);
+        --gx: clamp(20px, 4vw, 64px);
+        --font:
+          "Archivo", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica,
+          Arial, sans-serif;
+        --ease: cubic-bezier(0.22, 0.61, 0.21, 1);
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        background-color: #1c0509;
+        font-size: clamp(12px, calc(10px + 0.36vw), 18px);
+      }
+
+      body {
+        background: radial-gradient(
+            130% 90% at 50% -10%,
+            #2a0810 0%,
+            #1c0509 48%,
+            #100203 100%
+          )
+          fixed;
+        background-color: #1c0509;
+        color: var(--ink);
+        font-family: var(--font);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      ::selection {
+        background: var(--ink);
+        color: #1c0509;
+      }
+
+      :focus-visible {
+        outline: 2px solid #4d65ff;
+        outline-offset: 3px;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      .skip-link {
+        position: fixed;
+        top: 0.6rem;
+        left: 0.6rem;
+        z-index: 300;
+        padding: 0.7em 1.2em;
+        border-radius: 999px;
+        border: 1px solid var(--ink);
+        background: var(--paper);
+        color: var(--ink);
+        font-size: 0.8rem;
+        font-weight: 600;
+        transform: translateY(-150%);
+      }
+
+      .skip-link:focus {
+        transform: none;
+      }
+
+      .eyebrow {
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+      }
+
+      .site-head {
+        position: fixed;
+        inset: 0 0 auto 0;
+        z-index: 80;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.9rem var(--gx);
+        background: rgba(28, 5, 9, 0.32);
+        backdrop-filter: blur(26px) saturate(1.9);
+        -webkit-backdrop-filter: blur(26px) saturate(1.9);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.65rem;
+      }
+
+      .mark {
+        width: 2.15rem;
+        height: 2.15rem;
+        border-radius: 50%;
+        overflow: hidden;
+        display: grid;
+        place-items: center;
+        background: var(--paper);
+        flex-shrink: 0;
+      }
+
+      .mark img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .brand-name {
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+
+      .brand-name i {
+        font-style: normal;
+        color: var(--ink-soft);
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55em;
+        padding: 0.72em 1.5em;
+        border-radius: 999px;
+        border: 1px solid var(--ink);
+        font-weight: 500;
+        font-size: 0.95rem;
+        transition:
+          background-color 0.3s var(--ease),
+          color 0.3s var(--ease),
+          border-color 0.3s var(--ease);
+      }
+
+      .pill:hover {
+        background: var(--ink);
+        color: #1c0509;
+        border-color: var(--ink);
+        text-decoration: none;
+      }
+
+      main {
+        flex: 1;
+        padding: calc(6rem + 3vh) var(--gx) calc(4rem + 3vh);
+        max-width: 900px;
+        width: 100%;
+        margin-inline: auto;
+      }
+
+      main h1 {
+        font-size: clamp(1.9rem, 5vw, 3.2rem);
+        font-weight: 600;
+        letter-spacing: -0.03em;
+        line-height: 1.05;
+        margin: 0.8rem 0 0.4rem;
+      }
+
+      .updated {
+        color: var(--ink-soft);
+        font-size: 0.85rem;
+        margin-bottom: 2.4rem;
+      }
+
+      section {
+        margin-bottom: 2rem;
+      }
+
+      section h2 {
+        font-size: clamp(1.05rem, 2vw, 1.3rem);
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        margin-bottom: 0.6rem;
+      }
+
+      section p {
+        color: var(--ink-soft);
+        line-height: 1.65;
+        margin-bottom: 0.7rem;
+        max-width: 64ch;
+      }
+
+      section li {
+        color: var(--ink-soft);
+        line-height: 1.65;
+        margin-bottom: 0.45rem;
+        margin-left: 1.2rem;
+        list-style: disc;
+        max-width: 62ch;
+      }
+
+      .contact-row {
+        margin-top: 2.4rem;
+        padding-top: 1.4rem;
+        border-top: 1px solid var(--line);
+        color: var(--ink-soft);
+        line-height: 1.7;
+        font-size: 0.95rem;
+      }
+
+      footer {
+        padding: 1.1rem var(--gx);
+        border-top: 1px solid var(--line);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        font-size: 0.78rem;
+        color: var(--ink-faint);
+      }
+
+      footer a {
+        color: var(--ink-soft);
+        transition: color 0.25s ease;
+      }
+
+      footer a:hover {
+        color: var(--ink);
+        text-decoration: none;
+      }
+
+      @media (max-width: 720px) {
+        footer {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.3rem;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          transition-duration: 0.001s !important;
+          animation-duration: 0.001s !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-head">
+      <a class="brand" href="/" aria-label="Digihood Studio — home">
+        <span class="mark">
+          <img src="digilogo-white.png" alt="" />
+        </span>
+        <span class="brand-name">Digihood<i>&nbsp;Studio</i></span>
+      </a>
+      <a class="pill" href="/#contact">Get in touch</a>
+    </header>
+
+    <main id="main">
+      <p class="eyebrow">Cookie Policy</p>
+      <h1>Cookie Policy</h1>
+      <p class="updated">Last updated: 11 September 2026</p>
+
+      <section>
+        <h2>What are cookies?</h2>
+        <p>
+          Cookies are small text files stored on your device by a website. They
+          are used to remember preferences, log you in, or track activity.
+        </p>
+      </section>
+
+      <section>
+        <h2>Does this website use cookies?</h2>
+        <p>
+          <strong>No.</strong> digihoodstudio.com does not place cookies on your
+          device. We do not use advertising, analytics, or fingerprinting
+          trackers.
+        </p>
+        <p>
+          We do use your browser's <strong>sessionStorage</strong> to remember
+          that the loading screen has been shown once per visit. This data is
+          stored only in your current browser tab, is not a cookie, is not sent
+          to us, and is cleared when you close the tab.
+        </p>
+      </section>
+
+      <section>
+        <h2>Third-party resources</h2>
+        <p>
+          The Site loads resources from third parties that may make network
+          requests from your browser:
+        </p>
+        <ul>
+          <li>
+            <strong>Google Fonts</strong> — serves font files. Google's own
+            privacy terms apply to those requests.
+          </li>
+          <li>
+            <strong>jsDelivr</strong> — serves the animation libraries
+            (GSAP and Three.js).
+          </li>
+          <li>
+            <strong>Web3Forms</strong> — processes contact form submissions
+            when you send a message.
+          </li>
+        </ul>
+        <p>
+          None of these services is used by us for tracking or advertising, and
+          none of them sets cookies on our behalf.
+        </p>
+      </section>
+
+      <section>
+        <h2>Managing cookies and storage</h2>
+        <p>
+          You can control or block cookies and site data through your browser
+          settings. You can also clear sessionStorage by closing the tab or
+          clearing "site and tab data" in your browser. Blocking site data may
+          affect some site behaviour, such as the intro animation.
+        </p>
+      </section>
+
+      <section>
+        <h2>Contact</h2>
+        <p>
+          Questions about this Cookie Policy can be sent to
+          <a href="mailto:digihoodstudio@gmail.com">digihoodstudio@gmail.com</a>.
+        </p>
+      </section>
+
+      <div class="contact-row">
+        Digihood Studio<br />
+        Kathmandu, Nepal<br />
+        <a href="mailto:digihoodstudio@gmail.com">digihoodstudio@gmail.com</a>
+      </div>
+    </main>
+
+    <footer>
+      <span>© <span id="yr"></span> Digihood Studio | Kathmandu, Nepal</span>
+      <nav aria-label="Legal">
+        <a href="/privacy.html">Privacy</a>
+        &nbsp;·&nbsp;
+        <a href="/terms.html">Terms</a>
+        &nbsp;·&nbsp;
+        <a href="/cookies.html">Cookies</a>
+      </nav>
+    </footer>
+
+    <script>
+      document.getElementById("yr").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

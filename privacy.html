@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Privacy Policy — Digihood Studio</title>
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#1C0509" />
+    <link rel="icon" href="digilogo-white.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --paper: #1c0509;
+        --ink: #f2e7d5;
+        --ink-soft: rgba(242, 231, 213, 0.6);
+        --ink-faint: rgba(242, 231, 213, 0.55);
+        --line: rgba(242, 231, 213, 0.16);
+        --gx: clamp(20px, 4vw, 64px);
+        --font:
+          "Archivo", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica,
+          Arial, sans-serif;
+        --ease: cubic-bezier(0.22, 0.61, 0.21, 1);
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        background-color: #1c0509;
+        font-size: clamp(12px, calc(10px + 0.36vw), 18px);
+      }
+
+      body {
+        background: radial-gradient(
+            130% 90% at 50% -10%,
+            #2a0810 0%,
+            #1c0509 48%,
+            #100203 100%
+          )
+          fixed;
+        background-color: #1c0509;
+        color: var(--ink);
+        font-family: var(--font);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      ::selection {
+        background: var(--ink);
+        color: #1c0509;
+      }
+
+      :focus-visible {
+        outline: 2px solid #4d65ff;
+        outline-offset: 3px;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      .eyebrow {
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+      }
+
+      .site-head {
+        position: fixed;
+        inset: 0 0 auto 0;
+        z-index: 80;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.9rem var(--gx);
+        background: rgba(28, 5, 9, 0.32);
+        backdrop-filter: blur(26px) saturate(1.9);
+        -webkit-backdrop-filter: blur(26px) saturate(1.9);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.65rem;
+      }
+
+      .mark {
+        width: 2.15rem;
+        height: 2.15rem;
+        border-radius: 50%;
+        overflow: hidden;
+        display: grid;
+        place-items: center;
+        background: var(--paper);
+        flex-shrink: 0;
+      }
+
+      .mark img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .brand-name {
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+
+      .brand-name i {
+        font-style: normal;
+        color: var(--ink-soft);
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55em;
+        padding: 0.72em 1.5em;
+        border-radius: 999px;
+        border: 1px solid var(--ink);
+        font-weight: 500;
+        font-size: 0.95rem;
+        transition:
+          background-color 0.3s var(--ease),
+          color 0.3s var(--ease),
+          border-color 0.3s var(--ease);
+      }
+
+      .pill:hover {
+        background: var(--ink);
+        color: #1c0509;
+        border-color: var(--ink);
+        text-decoration: none;
+      }
+
+      main {
+        flex: 1;
+        padding: calc(6rem + 3vh) var(--gx) calc(4rem + 3vh);
+        max-width: 900px;
+        width: 100%;
+        margin-inline: auto;
+      }
+
+      main h1 {
+        font-size: clamp(1.9rem, 5vw, 3.2rem);
+        font-weight: 600;
+        letter-spacing: -0.03em;
+        line-height: 1.05;
+        margin: 0.8rem 0 0.4rem;
+      }
+
+      .updated {
+        color: var(--ink-soft);
+        font-size: 0.85rem;
+        margin-bottom: 2.4rem;
+      }
+
+      section {
+        margin-bottom: 2rem;
+      }
+
+      section h2 {
+        font-size: clamp(1.05rem, 2vw, 1.3rem);
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        margin-bottom: 0.6rem;
+      }
+
+      section p {
+        color: var(--ink-soft);
+        line-height: 1.65;
+        margin-bottom: 0.7rem;
+        max-width: 64ch;
+      }
+
+      section li {
+        color: var(--ink-soft);
+        line-height: 1.65;
+        margin-bottom: 0.45rem;
+        margin-left: 1.2rem;
+        list-style: disc;
+        max-width: 62ch;
+      }
+
+      .contact-row {
+        margin-top: 2.4rem;
+        padding-top: 1.4rem;
+        border-top: 1px solid var(--line);
+        color: var(--ink-soft);
+        line-height: 1.7;
+        font-size: 0.95rem;
+      }
+
+      footer {
+        padding: 1.1rem var(--gx);
+        border-top: 1px solid var(--line);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        font-size: 0.78rem;
+        color: var(--ink-faint);
+      }
+
+      footer a {
+        color: var(--ink-soft);
+        transition: color 0.25s ease;
+      }
+
+      footer a:hover {
+        color: var(--ink);
+        text-decoration: none;
+      }
+
+      @media (max-width: 720px) {
+        footer {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.3rem;
+        }
+      }
+
+      .skip-link {
+        position: fixed;
+        top: 0.6rem;
+        left: 0.6rem;
+        z-index: 300;
+        padding: 0.7em 1.2em;
+        border-radius: 999px;
+        border: 1px solid var(--ink);
+        background: var(--paper);
+        color: var(--ink);
+        font-size: 0.8rem;
+        font-weight: 600;
+        transform: translateY(-150%);
+      }
+
+      .skip-link:focus {
+        transform: none;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          transition-duration: 0.001s !important;
+          animation-duration: 0.001s !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-head">
+      <a class="brand" href="/" aria-label="Digihood Studio — home">
+        <span class="mark">
+          <img src="digilogo-white.png" alt="" />
+        </span>
+        <span class="brand-name">Digihood<i>&nbsp;Studio</i></span>
+      </a>
+      <a class="pill" href="/#contact">Get in touch</a>
+    </header>
+
+    <main id="main">
+      <p class="eyebrow">Privacy Policy</p>
+      <h1>Privacy Policy</h1>
+      <p class="updated">Last updated: <span id="date">11 September 2026</span></p>
+
+      <section>
+        <h2>1. Who we are</h2>
+        <p>
+          Digihood Studio ("we", "us", "our") is a digital marketing studio
+          based in Kathmandu, Nepal. We operate the website
+          digihoodstudio.com. If you have any questions about this policy, you
+          can contact us at
+          <a href="mailto:digihoodstudio@gmail.com">digihoodstudio@gmail.com</a>.
+        </p>
+      </section>
+
+      <section>
+        <h2>2. Information we collect</h2>
+        <p>
+          We collect the minimum amount of information needed to respond to your
+          enquiries. When you use our contact form, we collect:
+        </p>
+        <ul>
+          <li>Your full name</li>
+          <li>Your email address</li>
+          <li>Your contact number</li>
+          <li>The message you choose to send</li>
+        </ul>
+        <p>
+          We do not collect payment details, identity documents, or any
+          sensitive personal data through this website.
+        </p>
+      </section>
+
+      <section>
+        <h2>3. How we use your information</h2>
+        <p>We use the information you provide to:</p>
+        <ul>
+          <li>Respond to your enquiries and requests</li>
+          <li>Discuss potential projects and services</li>
+          <li>Keep a record of our business communications</li>
+        </ul>
+        <p>
+          We process this data on the basis of your consent, which you give by
+          submitting the form. You can withdraw your consent at any time by
+          contacting us.
+        </p>
+      </section>
+
+      <section>
+        <h2>4. Sharing your information</h2>
+        <p>We do not sell, rent, or trade your personal information. We only work with service providers that help us operate this website:</p>
+        <ul>
+          <li>
+            <strong>Web3Forms</strong> — processes contact form submissions.
+          </li>
+          <li>
+            <strong>Our hosting provider</strong> — serves the website files
+            and may process limited technical data (such as IP addresses) as
+            part of standard web hosting.
+          </li>
+          <li>
+            <strong>Google Fonts</strong> — provides font files; when fonts load
+            directly from Google, requests are made to Google servers.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>5. Data retention</h2>
+        <p>
+          We keep enquiry messages for as long as needed to respond and follow
+          up, after which they are deleted. You can ask us to delete your data
+          at any time.
+        </p>
+      </section>
+
+      <section>
+        <h2>6. Security</h2>
+        <p>
+          We take reasonable technical and organisational measures to protect
+          the information we hold. However, no method of transmission over the
+          internet is completely secure, and we cannot guarantee absolute
+          security.
+        </p>
+      </section>
+
+      <section>
+        <h2>7. Your rights</h2>
+        <p>Subject to applicable law, you have the right to:</p>
+        <ul>
+          <li>Access the personal data we hold about you</li>
+          <li>Request correction of inaccurate data</li>
+          <li>Request deletion of your data</li>
+          <li>Object to or restrict certain processing</li>
+          <li>Withdraw consent where processing is based on consent</li>
+        </ul>
+        <p>
+          To exercise any of these rights, email us at
+          <a href="mailto:digihoodstudio@gmail.com">digihoodstudio@gmail.com</a>.
+          We will respond within a reasonable time.
+        </p>
+      </section>
+
+      <section>
+        <h2>8. Changes to this policy</h2>
+        <p>
+          We may update this policy from time to time. The latest version will
+          always be available on this page with a new "Last updated" date.
+        </p>
+      </section>
+
+      <div class="contact-row">
+        Digihood Studio<br />
+        Kathmandu, Nepal<br />
+        <a href="mailto:digihoodstudio@gmail.com">digihoodstudio@gmail.com</a>
+      </div>
+    </main>
+
+    <footer>
+      <span>© <span id="yr"></span> Digihood Studio | Kathmandu, Nepal</span>
+      <nav aria-label="Legal">
+        <a href="/privacy.html">Privacy</a>
+        &nbsp;·&nbsp;
+        <a href="/terms.html">Terms</a>
+        &nbsp;·&nbsp;
+        <a href="/cookies.html">Cookies</a>
+      </nav>
+    </footer>
+
+    <script>
+      document.getElementById("yr").textContent = new Date().getFullYear();
+      var d = document.getElementById("date");
+      if (d) {
+        d.textContent =
+          d.textContent + " (revised " + new Date().getFullYear() + ")";
+      }
+    </script>
+  </body>
+</html>
