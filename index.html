@@ -1898,6 +1898,18 @@
             0 14px 44px rgba(0, 0, 0, 0.36);
         }
 
+        [data-reveal],
+        .ht-inner,
+        .st,
+        .hwi {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+
+        [data-depth] {
+          transform: none !important;
+        }
+
         .mark {
           width: 2.35rem;
           height: 2.35rem;
@@ -3096,6 +3108,7 @@
         var reduced = window.matchMedia(
           "(prefers-reduced-motion: reduce)",
         ).matches;
+        var isMobile = window.matchMedia("(max-width: 720px)").matches;
 
         d.getElementById("year").textContent = new Date().getFullYear();
 
@@ -3242,7 +3255,7 @@
         })();
 
         var revealEls = d.querySelectorAll("[data-reveal]");
-        if (reduced || !("IntersectionObserver" in window)) {
+        if (reduced || isMobile || !("IntersectionObserver" in window)) {
           revealEls.forEach(function (el) {
             el.classList.add("in");
           });
@@ -3356,7 +3369,7 @@
           });
         }
 
-        if (!reduced) {
+        if (!reduced && !isMobile) {
           var depthEls = [].slice.call(d.querySelectorAll("[data-depth]"));
           if (depthEls.length) {
             var depthItems = depthEls.map(function (el) {
@@ -3603,7 +3616,7 @@
 
           if (typeof ScrollTrigger !== "undefined") ScrollTrigger.refresh();
         }
-        if (!reduced) initScrollAnimations();
+        if (!reduced && !isMobile) initScrollAnimations();
 
         // ---------- Magnetic hover micro-interactions ----------
         function bindMagnetic(el, strength) {
