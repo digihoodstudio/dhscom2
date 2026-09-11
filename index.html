@@ -636,6 +636,10 @@
         transition-delay: 0s;
       }
 
+      section[id] {
+        scroll-margin-top: 88px;
+      }
+
       .hero {
         min-height: 100svh;
         display: flex;
@@ -1900,6 +1904,10 @@
           order: 1;
         }
 
+        section[id] {
+          scroll-margin-top: 68px;
+        }
+
         .mf-layout {
           grid-template-columns: 1fr;
         }
@@ -2237,7 +2245,7 @@
     </div>
 
     <header class="site-head" id="siteHead">
-      <a href="/home" class="brand" aria-label="Digihood Studio — home">
+      <a href="#/home" class="brand" aria-label="Digihood Studio — home">
         <span class="mark">
           <img
             src="digilogo-white.png"
@@ -2256,17 +2264,17 @@
       </a>
 
       <div class="head-links">
-        <a href="/services" class="head-link roll"
+        <a href="#/services" class="head-link roll"
           ><span>Services</span><span aria-hidden="true">Services</span></a
         >
-        <a href="/portfolio" class="head-link roll"
+        <a href="#/portfolio" class="head-link roll"
           ><span>Portfolio</span><span aria-hidden="true">Portfolio</span></a
         >
-        <a href="/about" class="head-link roll"
+        <a href="#/about" class="head-link roll"
           ><span>About</span><span aria-hidden="true">About</span></a
         >
         <a
-          href="/contact"
+          href="#/contact"
           class="pill head-menu-btn"
           ><span>Contact us</span></a
         >
@@ -2294,7 +2302,7 @@
       aria-hidden="true"
     >
       <div class="menu-top">
-        <a href="/home" class="brand js-menu-close">
+        <a href="#/home" class="brand js-menu-close">
           <span class="mark">
             <img
               src="digilogo-white.png"
@@ -2315,16 +2323,16 @@
       </div>
 
       <nav class="menu-nav" aria-label="Primary">
-        <a class="m-link st" style="--i: 1" href="/home"
+        <a class="m-link st" style="--i: 1" href="#/home"
           ><span class="m-num">01</span><span>Home</span></a
         >
-        <a class="m-link st" style="--i: 2" href="/services"
+        <a class="m-link st" style="--i: 2" href="#/services"
           ><span class="m-num">02</span><span>Services</span></a
         >
-        <a class="m-link st" style="--i: 3" href="/about"
+        <a class="m-link st" style="--i: 3" href="#/about"
           ><span class="m-num">03</span><span>About</span></a
         >
-        <a class="m-link st" style="--i: 4" href="/contact"
+        <a class="m-link st" style="--i: 4" href="#/contact"
           ><span class="m-num">04</span><span>Contact</span></a
         >
         <a
@@ -2408,8 +2416,8 @@
             solution for digital growth.
           </p>
           <div class="hero-ctas">
-            <a href="/contact" class="pill pill--fill">Start a project</a>
-            <a href="/services" class="pill">Explore services</a>
+            <a href="#/contact" class="pill pill--fill">Start a project</a>
+            <a href="#/services" class="pill">Explore services</a>
           </div>
         </div>
 
@@ -2839,7 +2847,7 @@
               </div>
             </dl>
 
-            <a href="/contact" class="pill pill--fill" data-reveal
+            <a href="#/contact" class="pill pill--fill" data-reveal
               >Get in touch</a
             >
           </div>
@@ -3061,10 +3069,10 @@
         <div class="ft-col">
           <h4>Sitemap</h4>
           <ul>
-            <li><a href="/home">Home</a></li>
-            <li><a href="/services">Services</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/contact">Contact</a></li>
+            <li><a href="#/home">Home</a></li>
+            <li><a href="#/services">Services</a></li>
+            <li><a href="#/about">About</a></li>
+            <li><a href="#/contact">Contact</a></li>
           </ul>
         </div>
         <div class="ft-col">
@@ -3266,9 +3274,10 @@
         }
 
         function setRoute(name) {
-          if (!history.pushState) return;
-          var path = name === "home" || !name ? "/" : "/" + name;
-          history.pushState(null, "", path);
+          var target = name === "home" || !name ? "#/home" : "#/" + name;
+          if (window.location.hash !== target) {
+            window.location.hash = target;
+          }
         }
 
         function goToSection(name, smooth) {
@@ -3285,13 +3294,10 @@
 
         d.addEventListener("click", function (e) {
           if (!e.target || !e.target.closest) return;
-          var a = e.target.closest('a[href^="/"]');
+          var a = e.target.closest('a[href^="#/"]');
           if (!a) return;
           if (a.target === "_blank" || a.hasAttribute("download")) return;
-          var name = a
-            .getAttribute("href")
-            .replace(/^\/+/, "")
-            .split(/[?#]/)[0];
+          var name = a.getAttribute("href").replace(/^#\//, "");
           var id = routeIdFromPath(name);
           if (!id) return;
           e.preventDefault();
@@ -3308,8 +3314,20 @@
           );
         });
 
+        window.addEventListener("hashchange", function () {
+          var name = routeNameFromLocation();
+          if (name) goToSection(name, true);
+        });
+
+        function routeNameFromLocation() {
+          var m = (window.location.hash || "").match(/^#\/([\w]+)/);
+          if (m) return m[1];
+          var path = window.location.pathname.replace(/^\/+|\/+$/g, "");
+          return routeIdFromPath(path) ? path : null;
+        }
+
         (function initRouteOnLoad() {
-          var name = window.location.pathname.replace(/^\/+|\/+$/g, "");
+          var name = routeNameFromLocation();
           var id = routeIdFromPath(name);
           if (!id) return;
           var el = d.getElementById(id);
