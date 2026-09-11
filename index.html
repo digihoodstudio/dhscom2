@@ -3106,7 +3106,11 @@
         }
 
         try {
-          if (reduced || sessionStorage.getItem("dh-pre")) {
+          if (
+            reduced ||
+            window.matchMedia("(max-width: 720px)").matches ||
+            sessionStorage.getItem("dh-pre")
+          ) {
             if (pre) pre.remove();
             markLoaded();
           } else {
