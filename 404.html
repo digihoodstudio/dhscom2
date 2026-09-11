@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page not found — Digihood Studio</title>
+    <meta name="robots" content="noindex" />
+    <link rel="icon" href="digilogo-white.png" />
+    <meta name="theme-color" content="#1C0509" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --paper: #1c0509;
+        --ink: #f2e7d5;
+        --ink-soft: rgba(242, 231, 213, 0.6);
+        --ink-faint: rgba(242, 231, 213, 0.38);
+        --line: rgba(242, 231, 213, 0.16);
+        --gx: clamp(20px, 4vw, 64px);
+        --font:
+          "Archivo", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica,
+          Arial, sans-serif;
+        --ease: cubic-bezier(0.22, 0.61, 0.21, 1);
+        --snap: cubic-bezier(0.77, 0, 0.18, 1);
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        font-size: clamp(12px, calc(10px + 0.36vw), 18px);
+      }
+
+      body {
+        background: radial-gradient(
+            130% 90% at 50% -10%,
+            #2a0810 0%,
+            #1c0509 48%,
+            #100203 100%
+          )
+          fixed;
+        color: var(--ink);
+        font-family: var(--font);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      ::selection {
+        background: var(--ink);
+        color: #1c0509;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .eyebrow {
+        font-size: 0.72rem;
+        font-weight: 500;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+      }
+
+      /* header */
+      .site-head {
+        position: fixed;
+        inset: 0 0 auto 0;
+        z-index: 80;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.9rem var(--gx);
+        background: rgba(28, 5, 9, 0.32);
+        backdrop-filter: blur(26px) saturate(1.9);
+        -webkit-backdrop-filter: blur(26px) saturate(1.9);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.12),
+          inset 0 -1px 0 rgba(242, 231, 213, 0.06),
+          0 10px 34px rgba(0, 0, 0, 0.28);
+        border-bottom: 1px solid var(--line);
+      }
+
+      @supports not (
+        (backdrop-filter: blur(4px)) or (-webkit-backdrop-filter: blur(4px))
+      ) {
+        .site-head {
+          background: rgba(28, 5, 9, 0.93);
+        }
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.65rem;
+      }
+
+      .mark {
+        width: 2.15rem;
+        height: 2.15rem;
+        border-radius: 50%;
+        overflow: hidden;
+        display: grid;
+        place-items: center;
+        background: var(--ink);
+        flex-shrink: 0;
+      }
+
+      .mark img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .brand-name {
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+
+      .brand-name i {
+        font-style: normal;
+        color: var(--ink-soft);
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55em;
+        padding: 0.72em 1.5em;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        font-weight: 500;
+        font-size: 0.95rem;
+        transition:
+          background-color 0.3s var(--ease),
+          color 0.3s var(--ease),
+          border-color 0.3s var(--ease),
+          transform 0.3s var(--ease);
+      }
+
+      .pill:hover {
+        background: var(--ink);
+        color: #1c0509;
+        border-color: var(--ink);
+      }
+
+      .pill--inv {
+        border-color: rgba(242, 231, 213, 0.45);
+      }
+
+      .pill--fill {
+        background: var(--ink);
+        border-color: var(--ink);
+        color: #1c0509;
+      }
+
+      .pill--fill:hover {
+        background: #efe3cf;
+        border-color: #efe3cf;
+        color: #1c0509;
+      }
+
+      /* main */
+      main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: calc(6rem + 4vh) var(--gx) calc(4rem + 4vh);
+      }
+
+      .nf-code {
+        perspective: 900px;
+        font-size: clamp(7rem, 26vw, 22rem);
+        line-height: 0.86;
+        font-weight: 700;
+        letter-spacing: -0.05em;
+        color: transparent;
+        -webkit-text-stroke: clamp(1px, 0.35vw, 2px) var(--ink);
+        user-select: none;
+        animation: drift 7s var(--ease) infinite alternate;
+      }
+
+      @keyframes drift {
+        from {
+          transform: rotateX(-4deg) rotateY(-6deg);
+        }
+        to {
+          transform: rotateX(4deg) rotateY(6deg);
+        }
+      }
+
+      .nf-copy {
+        max-width: 34rem;
+        margin-top: 2.4rem;
+      }
+
+      .nf-copy h1 {
+        font-size: clamp(1.5rem, 3vw, 2.2rem);
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        margin-top: 0.9rem;
+      }
+
+      .nf-copy p {
+        margin-top: 0.9rem;
+        color: var(--ink-soft);
+        font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+        line-height: 1.6;
+      }
+
+      .nf-actions {
+        display: flex;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 2.2rem;
+      }
+
+      .nf-count {
+        margin-top: 1.6rem;
+        font-size: 0.72rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--ink-faint);
+      }
+
+      .nf-count b {
+        color: var(--ink-soft);
+        font-weight: 600;
+      }
+
+      /* footer strip */
+      footer {
+        padding: 1.1rem var(--gx);
+        border-top: 1px solid var(--line);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        font-size: 0.78rem;
+        color: var(--ink-faint);
+      }
+
+      footer a {
+        transition: color 0.25s ease;
+      }
+
+      footer a:hover {
+        color: var(--ink);
+      }
+
+      /* reveal */
+      [data-reveal] {
+        opacity: 0;
+        transform: translate3d(0, 26px, 0) rotateX(-6deg);
+        transform-origin: top center;
+        transition:
+          opacity 0.85s var(--ease),
+          transform 0.85s var(--ease);
+        transition-delay: var(--d, 0s);
+      }
+
+      [data-reveal].in {
+        opacity: 1;
+        transform: none;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          transition-duration: 0.001s !important;
+          animation-duration: 0.001s !important;
+        }
+        .nf-code {
+          animation: none;
+        }
+        [data-reveal] {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-head">
+      <a class="brand" href="/" aria-label="Digihood Studio — home">
+        <span class="mark">
+          <img src="digilogo.png" alt="" onerror="this.style.display='none'" />
+        </span>
+        <span class="brand-name">Digihood<i>&nbsp;Studio</i></span>
+      </a>
+      <a class="pill pill--inv" href="/#contact">Get in touch</a>
+    </header>
+
+    <main>
+      <div class="nf-code" data-reveal aria-hidden="true">404</div>
+      <div class="nf-copy">
+        <p class="eyebrow" data-reveal style="--d: 0.12s">Lost signal</p>
+        <h1 data-reveal style="--d: 0.2s">This block isn't in our grid.</h1>
+        <p data-reveal style="--d: 0.28s">
+          The page you're after has been moved, renamed, or never existed. No
+          stress — everything we do build lives one click away.
+        </p>
+      </div>
+      <div class="nf-actions" data-reveal style="--d: 0.36s">
+        <a class="pill pill--fill" href="/">Back to home</a>
+        <a class="pill" href="mailto:digihoodstudio@gmail.com"
+          >Report a broken link</a
+        >
+      </div>
+      <p class="nf-count" data-reveal style="--d: 0.44s">
+        Taking you home in <b id="cd">10</b>s
+      </p>
+    </main>
+
+    <footer>
+      <span>© <span id="yr"></span> Digihood Studio | Kathmandu, Nepal</span>
+      <a href="mailto:digihoodstudio@gmail.com">digihoodstudio@gmail.com</a>
+    </footer>
+
+    <script>
+      (function () {
+        document.getElementById("yr").textContent =
+          new Date().getFullYear();
+
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            document.querySelectorAll("[data-reveal]").forEach(function (el) {
+              el.classList.add("in");
+            });
+          });
+        });
+
+        var left = 10;
+        var cd = document.getElementById("cd");
+        var t = setInterval(function () {
+          left -= 1;
+          if (left <= 0) {
+            clearInterval(t);
+            window.location.replace("/");
+            return;
+          }
+          if (cd) {
+            cd.textContent = left;
+          }
+        }, 1000);
+
+        document.querySelectorAll("a[href='/']").forEach(function (a) {
+          a.addEventListener("click", function () {
+            clearInterval(t);
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>
