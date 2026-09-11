@@ -840,12 +840,20 @@
         margin-left: calc(-50vw + 50%);
         overflow: hidden;
         padding-block: 1rem;
+        cursor: grab;
+        -webkit-user-select: none;
+        user-select: none;
+        touch-action: pan-y;
+      }
+
+      .pf-marquee.grabbing {
+        cursor: grabbing;
       }
 
       .pf-track {
         display: flex;
         width: max-content;
-        animation: pf-marquee 30s linear infinite;
+        will-change: transform;
       }
 
       .pf-group {
@@ -856,15 +864,6 @@
         flex: none;
         width: clamp(280px, 26vw, 400px);
         margin-right: clamp(1rem, 2vw, 1.6rem);
-      }
-
-      @keyframes pf-marquee {
-        0% {
-          transform: translateX(0);
-        }
-        100% {
-          transform: translateX(-50%);
-        }
       }
 
       .pf-card {
@@ -2116,8 +2115,7 @@
         }
 
         .pf-track {
-          animation-duration: 30s !important;
-          animation-iteration-count: infinite !important;
+          transform: none !important;
         }
 
         .mf-core::before {
@@ -3812,6 +3810,69 @@
         }
 
         if (mfSvg) requestAnimationFrame(mfTick);
+
+        // ---------- Portfolio marquee: auto-loop + drag both ways ----------
+        var pfMarquee = d.querySelector(".pf-marquee");
+        if (pfMarquee) {
+          var pfTrack = pfMarquee.querySelector(".pf-track");
+          var pfPos = 0;
+          var pfHalf = 0;
+          var pfAuto = !reduced;
+          var pfDragging = false;
+          var pfStartX = 0;
+          var pfStartPos = 0;
+          var pfLast = null;
+
+          function pfHalfWidth() {
+            return pfTrack.scrollWidth / 2;
+          }
+
+          function pfApply() {
+            pfTrack.style.transform =
+              "translate3d(" + -pfPos + "px,0,0)";
+          }
+
+          function pfLoop(now) {
+            if (pfAuto && !pfDragging) {
+              if (pfHalf <= 0) pfHalf = pfHalfWidth();
+              var dt = pfLast === null ? 0 : (now - pfLast) / 1000;
+              pfLast = now;
+              pfPos += (pfHalf / 30) * dt;
+              if (pfPos >= pfHalf) pfPos -= pfHalf;
+              pfApply();
+            }
+            requestAnimationFrame(pfLoop);
+          }
+          requestAnimationFrame(pfLoop);
+
+          pfMarquee.addEventListener("pointerdown", function (e) {
+            pfDragging = true;
+            pfStartX = e.clientX;
+            pfStartPos = pfPos;
+            pfLast = null;
+            pfMarquee.setPointerCapture(e.pointerId);
+            pfMarquee.classList.add("grabbing");
+          });
+
+          pfMarquee.addEventListener("pointermove", function (e) {
+            if (!pfDragging) return;
+            if (pfHalf <= 0) pfHalf = pfHalfWidth();
+            var dx = e.clientX - pfStartX;
+            pfPos = pfStartPos - dx;
+            while (pfPos >= pfHalf) pfPos -= pfHalf;
+            while (pfPos < 0) pfPos += pfHalf;
+            pfApply();
+          });
+
+          function pfEnd() {
+            pfDragging = false;
+            pfLast = null;
+            pfMarquee.classList.remove("grabbing");
+          }
+
+          pfMarquee.addEventListener("pointerup", pfEnd);
+          pfMarquee.addEventListener("pointercancel", pfEnd);
+        }
       })();
     </script>
   </body>
