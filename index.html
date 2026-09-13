@@ -237,6 +237,12 @@
         flex: none;
       }
 
+      .call-ic {
+        width: 0.85em;
+        height: 0.85em;
+        flex: none;
+      }
+
       .pill {
         display: inline-flex;
         align-items: center;
@@ -623,6 +629,9 @@
       }
 
       .menu-mail {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45em;
         font-size: clamp(1.15rem, 2.4vw, 1.7rem);
         font-weight: 500;
         letter-spacing: -0.01em;
@@ -652,6 +661,28 @@
       }
 
       .menu-social a:hover {
+        opacity: 1;
+      }
+
+      .menu-contact {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+        font-size: 0.82rem;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .menu-contact a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4em;
+        opacity: 0.85;
+        transition: opacity 0.3s ease;
+      }
+
+      .menu-contact a:hover {
         opacity: 1;
       }
 
@@ -1452,6 +1483,9 @@
       }
 
       .cdetail dd a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45em;
         border-bottom: 1px solid transparent;
         transition: border-color 0.3s ease;
       }
@@ -2394,8 +2428,17 @@
         <div class="st" style="--i: 6">
           <p class="eyebrow">Write to us</p>
           <a class="menu-mail" href="mailto:digihoodstudio@gmail.com"
-            >digihoodstudio@gmail.com</a
-          >
+            >digihoodstudio@gmail.com
+            <svg
+              class="arrow-ne"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M7 17L17 7M17 7H8M17 7v9" />
+            </svg>
+          </a>
         </div>
         <div class="st" style="--i: 7">
           <p class="eyebrow">Follow us</p>
@@ -2428,6 +2471,39 @@
                 stroke-width="2"
               >
                 <path d="M7 17L17 7M17 7H8M17 7v9" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="st" style="--i: 8">
+          <p class="eyebrow">Call us</p>
+          <div class="menu-contact">
+            <a href="tel:+9779705475596"
+              >+977 9705475596
+              <svg
+                class="call-ic"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                />
+              </svg>
+            </a>
+            <a href="tel:+9779712039972"
+              >+977 9712039972
+              <svg
+                class="call-ic"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                />
               </svg>
             </a>
           </div>
@@ -2922,16 +2998,51 @@
                 <dt>Email</dt>
                 <dd>
                   <a href="mailto:digihoodstudio@gmail.com"
-                    >digihoodstudio@gmail.com</a
-                  >
+                    >digihoodstudio@gmail.com
+                    <svg
+                      class="arrow-ne"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path d="M7 17L17 7M17 7H8M17 7v9" />
+                    </svg>
+                  </a>
                 </dd>
               </div>
               <div class="cdetail">
                 <dt>Phone</dt>
                 <dd>
-                  <a href="tel:+9779705475596">+977 9705475596</a>
+                  <a href="tel:+9779705475596"
+                    >+977 9705475596
+                    <svg
+                      class="call-ic"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                      />
+                    </svg>
+                  </a>
                   &nbsp;/&nbsp;
-                  <a href="tel:+9779712039972">+977 9712039972</a>
+                  <a href="tel:+9779712039972"
+                    >+977 9712039972
+                    <svg
+                      class="call-ic"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                      />
+                    </svg>
+                  </a>
                 </dd>
               </div>
               <div class="cdetail">
@@ -2941,15 +3052,33 @@
                     href="https://www.instagram.com/digihoodstudio"
                     target="_blank"
                     rel="noopener noreferrer"
-                    >Instagram</a
-                  >
+                    >Instagram
+                    <svg
+                      class="arrow-ne"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path d="M7 17L17 7M17 7H8M17 7v9" />
+                    </svg>
+                  </a>
                   &nbsp;/&nbsp;
                   <a
                     href="https://www.linkedin.com/company/digihoodstudio"
                     target="_blank"
                     rel="noopener noreferrer"
-                    >LinkedIn</a
-                  >
+                    >LinkedIn
+                    <svg
+                      class="arrow-ne"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path d="M7 17L17 7M17 7H8M17 7v9" />
+                    </svg>
+                  </a>
                 </dd>
               </div>
             </dl>
@@ -3212,6 +3341,52 @@
                   stroke-width="2"
                 >
                   <path d="M7 17L17 7M17 7H8M17 7v9" />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:digihoodstudio@gmail.com"
+                >digihoodstudio@gmail.com
+                <svg
+                  class="arrow-ne"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M7 17L17 7M17 7H8M17 7v9" />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="tel:+9779705475596"
+                >+977 9705475596
+                <svg
+                  class="call-ic"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="tel:+9779712039972"
+                >+977 9712039972
+                <svg
+                  class="call-ic"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                  />
                 </svg>
               </a>
             </li>
