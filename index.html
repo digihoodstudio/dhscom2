@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
     <meta name="theme-color" content="#1C0509" />
     <title>Digihood Studio</title>
     <meta
@@ -462,7 +465,9 @@
         width: 50%;
         height: 1.5px;
         background: var(--ink);
-        transition: transform 0.3s var(--ease), opacity 0.3s ease;
+        transition:
+          transform 0.3s var(--ease),
+          opacity 0.3s ease;
       }
 
       .menu-toggle[aria-expanded="true"] .menu-toggle-bar:first-child {
@@ -702,13 +707,12 @@
         width: 62%;
         height: 62%;
         border-radius: 50%;
-        background:
-          radial-gradient(
-            circle at 38% 32%,
-            rgba(130, 200, 255, 0.55),
-            rgba(77, 101, 255, 0.22) 45%,
-            rgba(28, 5, 9, 0.1) 75%
-          );
+        background: radial-gradient(
+          circle at 38% 32%,
+          rgba(130, 200, 255, 0.55),
+          rgba(77, 101, 255, 0.22) 45%,
+          rgba(28, 5, 9, 0.1) 75%
+        );
         box-shadow:
           inset 0 2px 6px rgba(255, 255, 255, 0.5),
           0 0 60px rgba(77, 101, 255, 0.25);
@@ -1108,13 +1112,12 @@
         position: absolute;
         inset: -8%;
         border-radius: 50%;
-        background:
-          radial-gradient(
-            circle,
-            transparent 50%,
-            rgba(255, 80, 80, 0.15) 60%,
-            transparent 70%
-          );
+        background: radial-gradient(
+          circle,
+          transparent 50%,
+          rgba(255, 80, 80, 0.15) 60%,
+          transparent 70%
+        );
         animation: mf-wave 4s ease-in-out infinite;
         pointer-events: none;
       }
@@ -1124,13 +1127,12 @@
         position: absolute;
         inset: -12%;
         border-radius: 50%;
-        background:
-          radial-gradient(
-            circle,
-            transparent 40%,
-            rgba(220, 60, 60, 0.12) 55%,
-            transparent 65%
-          );
+        background: radial-gradient(
+          circle,
+          transparent 40%,
+          rgba(220, 60, 60, 0.12) 55%,
+          transparent 65%
+        );
         animation: mf-wave 4s ease-in-out infinite reverse;
         pointer-events: none;
       }
@@ -1145,7 +1147,7 @@
           opacity: 0.9;
         }
         50% {
-          transform: scale(1.0) rotate(0deg);
+          transform: scale(1) rotate(0deg);
           opacity: 0.6;
         }
         75% {
@@ -1198,7 +1200,9 @@
 
       .svc {
         border-top: 1px solid var(--line);
-        transition: filter 0.5s var(--ease), opacity 0.5s var(--ease);
+        transition:
+          filter 0.5s var(--ease),
+          opacity 0.5s var(--ease);
       }
 
       .svc-head {
@@ -2287,7 +2291,10 @@
     <a class="skip-link" href="#main">Skip to content</a>
     <div class="pre" id="pre" aria-hidden="true">
       <div class="pre-line">
-        <span class="pre-word"><span class="pre-brand">DIGIHOOD<sup class="pre-rm">®</sup></span><span class="pre-sub">STUDIO</span></span>
+        <span class="pre-word"
+          ><span class="pre-brand">DIGIHOOD<sup class="pre-rm">®</sup></span
+          ><span class="pre-sub">STUDIO</span></span
+        >
       </div>
     </div>
 
@@ -2317,9 +2324,7 @@
         <a href="#/about" class="head-link roll"
           ><span>About</span><span aria-hidden="true">About</span></a
         >
-        <a
-          href="#/contact"
-          class="pill head-menu-btn"
+        <a href="#/contact" class="pill head-menu-btn"
           ><span>Contact us</span></a
         >
       </div>
@@ -2443,10 +2448,10 @@
           <div class="orb-core"></div>
         </div>
         <h1 class="hero-title">
+          <span class="ht-line"><span class="ht-inner">Your brand,</span></span>
           <span class="ht-line"
-            ><span class="ht-inner">Your brand,</span></span
+            ><span class="ht-inner">Made to matter.</span></span
           >
-          <span class="ht-line"><span class="ht-inner">Made to matter.</span></span>
         </h1>
 
         <div class="hero-sub">
@@ -2608,22 +2613,25 @@
                   startOffset="0%"
                   textLength="471"
                   lengthAdjust="spacingAndGlyphs"
-                  >BUILD STRONG FOUNDATIONS THAT LAST</textPath
                 >
+                  BUILD STRONG FOUNDATIONS THAT LAST
+                </textPath>
                 <textPath
                   href="#mf-circle"
                   startOffset="33.3333%"
                   textLength="471"
                   lengthAdjust="spacingAndGlyphs"
-                  >TURN ATTENTION INTO MEASURABLE GROWTH</textPath
                 >
+                  TURN ATTENTION INTO MEASURABLE GROWTH
+                </textPath>
                 <textPath
                   href="#mf-circle"
                   startOffset="66.6667%"
                   textLength="471"
                   lengthAdjust="spacingAndGlyphs"
-                  >GIVE YOUR BRAND ROOM TO SCALE</textPath
                 >
+                  GIVE YOUR BRAND ROOM TO SCALE
+                </textPath>
               </text>
             </svg>
             <div class="mf-core">
@@ -3035,14 +3043,51 @@
                         <path d="M6 9l6 6 6-6" />
                       </svg>
                     </button>
-                    <input type="hidden" name="service" id="fService" value="" />
+                    <input
+                      type="hidden"
+                      name="service"
+                      id="fService"
+                      value=""
+                    />
                     <ul class="sel-menu" role="listbox" id="selMenu">
-                      <li role="option" tabindex="-1" data-value="SEO Optimization">SEO Optimization</li>
-                      <li role="option" tabindex="-1" data-value="Social Media Management">Social Media Management</li>
-                      <li role="option" tabindex="-1" data-value="Ads Campaign">Ads Campaign</li>
-                      <li role="option" tabindex="-1" data-value="Graphic Design">Graphic Design</li>
-                      <li role="option" tabindex="-1" data-value="Digital Marketing">Digital Marketing</li>
-                      <li role="option" tabindex="-1" data-value="Content Marketing">Content Marketing</li>
+                      <li
+                        role="option"
+                        tabindex="-1"
+                        data-value="SEO Optimization"
+                      >
+                        SEO Optimization
+                      </li>
+                      <li
+                        role="option"
+                        tabindex="-1"
+                        data-value="Social Media Management"
+                      >
+                        Social Media Management
+                      </li>
+                      <li role="option" tabindex="-1" data-value="Ads Campaign">
+                        Ads Campaign
+                      </li>
+                      <li
+                        role="option"
+                        tabindex="-1"
+                        data-value="Graphic Design"
+                      >
+                        Graphic Design
+                      </li>
+                      <li
+                        role="option"
+                        tabindex="-1"
+                        data-value="Digital Marketing"
+                      >
+                        Digital Marketing
+                      </li>
+                      <li
+                        role="option"
+                        tabindex="-1"
+                        data-value="Content Marketing"
+                      >
+                        Content Marketing
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -3595,10 +3640,7 @@
             "position",
             new THREE.BufferAttribute(positions, 3),
           );
-          geometry.setAttribute(
-            "color",
-            new THREE.BufferAttribute(colors, 3),
-          );
+          geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
           var material = new THREE.PointsMaterial({
             size: 0.07,
             vertexColors: true,
@@ -3659,15 +3701,12 @@
               return;
             }
             var time = performance.now() * 0.0004;
-            points.rotation.y +=
-              (-mouse.x * 0.12 - points.rotation.y) * 0.04;
-            points.rotation.x +=
-              (mouse.y * 0.08 - points.rotation.x) * 0.04;
+            points.rotation.y += (-mouse.x * 0.12 - points.rotation.y) * 0.04;
+            points.rotation.x += (mouse.y * 0.08 - points.rotation.x) * 0.04;
             var pos = geometry.attributes.position;
             for (var i = 0; i < count; i++) {
               pos.array[i * 3 + 1] =
-                basePos[i * 3 + 1] +
-                Math.sin(time + i * 0.6) * 0.28;
+                basePos[i * 3 + 1] + Math.sin(time + i * 0.6) * 0.28;
               pos.array[i * 3] =
                 basePos[i * 3] + Math.cos(time * 0.8 + i * 0.4) * 0.12;
             }
@@ -3802,11 +3841,9 @@
           selInput.value = value;
           selBox.setAttribute("data-value", value);
           selBox.classList.remove("invalid");
-          selMenu
-            .querySelectorAll("li")
-            .forEach(function (o) {
-              o.classList.toggle("selected", o === li);
-            });
+          selMenu.querySelectorAll("li").forEach(function (o) {
+            o.classList.toggle("selected", o === li);
+          });
           selToggle.focus();
         }
 
@@ -3837,8 +3874,7 @@
               var idx = iopts.indexOf(selMenu.querySelector("li.selected"));
               if (e.key === "ArrowDown")
                 iopts[(idx + 1) % iopts.length].focus();
-              else
-                iopts[(idx + iopts.length - 1) % iopts.length].focus();
+              else iopts[(idx + iopts.length - 1) % iopts.length].focus();
             }
           } else if (e.key === "Escape") {
             closeSel();
@@ -3851,9 +3887,7 @@
         });
 
         selMenu.addEventListener("keydown", function (e) {
-          var opts = Array.prototype.slice.call(
-            selMenu.querySelectorAll("li"),
-          );
+          var opts = Array.prototype.slice.call(selMenu.querySelectorAll("li"));
           var idx = opts.indexOf(document.activeElement);
           if (e.key === "ArrowDown") {
             e.preventDefault();
@@ -3888,25 +3922,27 @@
         var triedSubmit = false;
         var validateMsg = d.getElementById("validateMsg");
 
-        form.querySelectorAll(".field input, .field textarea").forEach(function (f) {
-          f.addEventListener("input", function () {
-            var field = f.closest(".field");
-            if (f.value.trim()) {
-              field.classList.remove("invalid");
-            }
+        form
+          .querySelectorAll(".field input, .field textarea")
+          .forEach(function (f) {
+            f.addEventListener("input", function () {
+              var field = f.closest(".field");
+              if (f.value.trim()) {
+                field.classList.remove("invalid");
+              }
+            });
           });
-        });
 
         function validateForm() {
           var firstInvalid = null;
-          form.querySelectorAll(".field input, .field textarea").forEach(
-            function (f) {
+          form
+            .querySelectorAll(".field input, .field textarea")
+            .forEach(function (f) {
               var field = f.closest(".field");
               var bad = !f.value.trim();
               field.classList.toggle("invalid", bad);
               if (bad && !firstInvalid) firstInvalid = field;
-            }
-          );
+            });
 
           if (!selValid) {
             selBox.classList.add("invalid");
@@ -4017,7 +4053,7 @@
             var t = ((now - mfStart) % mfDur) / mfDur;
             var rot = t * 360;
             mfSvg.style.transform = "rotate(" + rot + "deg)";
-            var tt = ((90 - rot) % 360 + 360) % 360;
+            var tt = (((90 - rot) % 360) + 360) % 360;
             var idx;
             if (tt >= 270 || tt < 30) {
               idx = 0;
@@ -4055,8 +4091,7 @@
           }
 
           function pfApply() {
-            pfTrack.style.transform =
-              "translate3d(" + -pfPos + "px,0,0)";
+            pfTrack.style.transform = "translate3d(" + -pfPos + "px,0,0)";
           }
 
           function pfLoop(now) {
