@@ -115,14 +115,28 @@
         justify-content: space-between;
         gap: 1rem;
         padding: 0.9rem var(--gx);
-        background: rgba(28, 5, 9, 0.32);
-        backdrop-filter: blur(26px) saturate(1.9);
-        -webkit-backdrop-filter: blur(26px) saturate(1.9);
+        background: transparent;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        box-shadow: none;
+        border-bottom: 1px solid transparent;
+        transition:
+          background-color 0.5s ease,
+          border-color 0.5s ease,
+          box-shadow 0.5s ease,
+          backdrop-filter 0.5s ease,
+          -webkit-backdrop-filter 0.5s ease;
+      }
+
+      .site-head.is-scrolled {
+        background: rgba(28, 5, 9, 0.45);
+        backdrop-filter: blur(30px) saturate(2.2);
+        -webkit-backdrop-filter: blur(30px) saturate(2.2);
+        border-bottom-color: var(--line);
         box-shadow:
-          inset 0 1px 0 rgba(255, 255, 255, 0.12),
-          inset 0 -1px 0 rgba(242, 231, 213, 0.06),
-          0 10px 34px rgba(0, 0, 0, 0.28);
-        border-bottom: 1px solid var(--line);
+          inset 0 1px 0 rgba(255, 255, 255, 0.16),
+          inset 0 -1px 0 rgba(242, 231, 213, 0.1),
+          0 14px 44px rgba(0, 0, 0, 0.36);
       }
 
       @supports not (
@@ -346,11 +360,12 @@
         }
 
         .site-head {
-          border-bottom-color: #000;
-          box-shadow:
-            inset 0 1px 0 #000,
-            inset 0 -1px 0 #000,
-            0 10px 34px rgba(0, 0, 0, 0.28);
+          padding: 0.65rem var(--gx);
+        }
+
+        .site-head.is-scrolled {
+          border-bottom-color: transparent;
+          box-shadow: 0 14px 44px rgba(0, 0, 0, 0.36);
         }
       }
 
@@ -371,7 +386,7 @@
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <header class="site-head">
+    <header class="site-head" id="siteHead">
       <a class="brand" href="/" aria-label="Digihood Studio — home">
         <span class="mark">
           <img src="digilogo.png" alt="" onerror="this.style.display='none'" />
@@ -416,6 +431,17 @@
       (function () {
         document.getElementById("yr").textContent =
           new Date().getFullYear();
+
+        var head = document.getElementById("siteHead");
+        if (head) {
+          window.addEventListener(
+            "scroll",
+            function () {
+              head.classList.toggle("is-scrolled", window.scrollY > 40);
+            },
+            { passive: true },
+          );
+        }
 
         requestAnimationFrame(function () {
           requestAnimationFrame(function () {
