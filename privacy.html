@@ -494,6 +494,20 @@
     </footer>
 
     <script>
+      var emailLinks = document.querySelectorAll(
+        'a[href*="mail.google.com/mail/?view=cm"]',
+      );
+      if (window.matchMedia("(pointer: coarse)").matches) {
+        emailLinks.forEach(function (a) {
+          try {
+            var to = new URL(a.href).searchParams.get("to");
+            if (to) a.href = "mailto:" + to;
+          } catch (e) {}
+          a.removeAttribute("target");
+          a.removeAttribute("rel");
+        });
+      }
+
       var hr = document.getElementById("siteHead");
       if (hr) {
         window.addEventListener(
