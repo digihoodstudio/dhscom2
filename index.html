@@ -2273,10 +2273,6 @@
           transition-delay: 0s !important;
         }
 
-        .pf-track {
-          transform: none !important;
-        }
-
         .mf-core::before {
           animation-name: mf-wave;
           animation-duration: 4s !important;
@@ -3323,6 +3319,7 @@
         var staticScroll = true;
 
         var pre = d.getElementById("pre");
+        if (pre) pre.remove();
 
         function markLoaded() {
           requestAnimationFrame(function () {
@@ -3332,31 +3329,7 @@
           });
         }
 
-        try {
-          if (
-            reduced ||
-            window.matchMedia("(max-width: 720px)").matches ||
-            sessionStorage.getItem("dh-pre")
-          ) {
-            if (pre) pre.remove();
-            markLoaded();
-          } else {
-            requestAnimationFrame(function () {
-              pre.classList.add("show");
-            });
-            sessionStorage.setItem("dh-pre", "1");
-            setTimeout(function () {
-              pre.classList.add("done");
-              markLoaded();
-              setTimeout(function () {
-                pre.remove();
-              }, 850);
-            }, 1050);
-          }
-        } catch (e) {
-          if (pre) pre.remove();
-          markLoaded();
-        }
+        markLoaded();
 
         var head = d.getElementById("siteHead");
         window.addEventListener(
@@ -4137,7 +4110,7 @@
           var pfTrack = pfMarquee.querySelector(".pf-track");
           var pfPos = 0;
           var pfHalf = 0;
-          var pfAuto = !reduced;
+          var pfAuto = true;
           var pfDragging = false;
           var pfStartX = 0;
           var pfStartPos = 0;
@@ -4150,6 +4123,17 @@
           function pfApply() {
             pfTrack.style.transform = "translate3d(" + -pfPos + "px,0,0)";
           }
+
+          function pfRefresh() {
+            var half = pfHalfWidth();
+            if (half > 0) {
+              pfHalf = half;
+              if (pfPos >= pfHalf) pfPos %= pfHalf;
+            }
+          }
+
+          window.addEventListener("load", pfRefresh);
+          window.addEventListener("resize", pfRefresh);
 
           function pfLoop(now) {
             if (pfAuto && !pfDragging) {
