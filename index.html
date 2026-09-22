@@ -1783,8 +1783,34 @@
         text-underline-offset: 3px;
       }
 
-      .footer {
-        padding-block: clamp(50px, 7vw, 100px) 1.6rem;
+      footer {
+        padding: 1.1rem var(--gx);
+        border-top: 1px solid var(--line);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        font-size: 0.78rem;
+        color: var(--ink-faint);
+      }
+
+      footer a {
+        color: var(--ink-soft);
+        transition: color 0.25s ease;
+      }
+
+      footer a:hover {
+        color: var(--ink);
+        text-decoration: none;
+      }
+
+      @media (max-width: 720px) {
+        footer {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.3rem;
+        }
       }
 
       .ft-giant {
@@ -3213,100 +3239,15 @@
       </section>
     </main>
 
-    <footer class="footer wrap">
-      <a
-        class="ft-giant"
-        href="https://wa.me/9779712039972"
-        target="_blank"
-        rel="noopener noreferrer"
-        data-reveal
-        data-tilt
-        data-depth="0.06"
-      >
-        Let's talk
-        <img src="arrow.png" alt="" class="arrow-icon" />
-      </a>
-
-      <div class="ft-grid">
-        <div class="ft-col">
-          <h4>Sitemap</h4>
-          <ul>
-            <li><a href="#/home">Home</a></li>
-            <li><a href="#/services">Services</a></li>
-            <li><a href="#/about">About</a></li>
-            <li><a href="#/contact">Contact</a></li>
-          </ul>
-        </div>
-        <div class="ft-col">
-          <h4>Socials</h4>
-          <ul>
-            <li>
-              <a
-                href="https://www.instagram.com/digihoodstudio"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Instagram
-                <svg
-                  class="arrow-ne"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M7 17L17 7M17 7H8M17 7v9" />
-                </svg>
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.linkedin.com/company/digihoodstudio"
-                target="_blank"
-                rel="noopener noreferrer"
-                >LinkedIn
-                <svg
-                  class="arrow-ne"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M7 17L17 7M17 7H8M17 7v9" />
-                </svg>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="ft-col">
-          <h4>Navigate</h4>
-          <button class="to-top" id="toTop" type="button">
-            Back to top
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path d="M12 19V5M5 12l7-7 7 7" />
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      <div class="ft-bottom">
-        <span
-          >Copyright &copy; <span id="year">2026</span> Digihood Studio. All
-          rights reserved.</span
-        >
-        <span>Your brand. Made to matter.</span>
-      </div>
-
-      <div class="ft-legal">
-        <nav aria-label="Legal" class="ft-legal-links">
-          <a href="/privacy.html">Privacy Policy</a>
-          <a href="/terms.html">Terms &amp; Conditions</a>
-          <a href="/cookies.html">Cookie Policy</a>
-        </nav>
-      </div>
+    <footer>
+      <span>Copyright © <span id="yr">2026</span> Digihood Studio. All rights reserved.</span>
+      <nav aria-label="Legal">
+        <a href="/privacy.html">Privacy</a>
+        &nbsp;·&nbsp;
+        <a href="/terms.html">Terms</a>
+        &nbsp;·&nbsp;
+        <a href="/cookies.html">Cookies</a>
+      </nav>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
@@ -3837,9 +3778,10 @@
         }
 
         var toTop = d.getElementById("toTop");
-        toTop.addEventListener("click", function () {
-          window.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" });
-        });
+        if (toTop)
+          toTop.addEventListener("click", function () {
+            window.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" });
+          });
 
         var form = d.getElementById("contactForm");
         var success = d.getElementById("formSuccess");
