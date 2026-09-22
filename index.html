@@ -3277,34 +3277,94 @@
         var emailLinks = d.querySelectorAll(
           'a[href*="mail.google.com/mail/?view=cm"]',
         );
+        var digihoodEmail = "digihoodstudio@gmail.com";
         var coarse = window.matchMedia("(pointer: coarse)").matches;
         var hoverOff = !window.matchMedia("(hover: hover)").matches;
         var hasTouch = "ontouchstart" in window;
         var mobileUA = /Mobi|Android|iPhone|iPad|iPod|IEMobile|Opera Mini/i.test(
           navigator.userAgent,
         );
-        if (coarse || (hasTouch && hoverOff) || mobileUA) {
-          emailLinks.forEach(function (a) {
+        var isAndroid = /Android/i.test(navigator.userAgent);
+        var isIOS =
+          /iPhone|iPad|iPod/i.test(navigator.userAgent) ||
+          (/Macintosh/i.test(navigator.userAgent) &&
+            navigator.maxTouchPoints > 1);
+        var phoneLike = coarse || (hasTouch && hoverOff) || mobileUA;
+
+        function gmailAppUrl(to) {
+          if (isAndroid)
+            return (
+              "intent://compose?to=" +
+              encodeURIComponent(to) +
+              "#Intent;scheme=mailto;package=com.google.android.gm;end"
+            );
+          if (isIOS) return "googlegmail://co?to=" + encodeURIComponent(to);
+          return null;
+        }
+
+        function gmailWebUrl(to) {
+          return (
+            "https://mail.google.com/mail/?view=cm&to=" +
+            encodeURIComponent(to)
+          );
+        }
+
+        function launchGmail(to) {
+          var url = gmailAppUrl(to);
+          if (!url) {
+            window.open(gmailWebUrl(to), "_blank", "noopener");
+            return;
+          }
+          var done = false;
+          var timer = setTimeout(function () {
+            if (!done) {
+              done = true;
+              window.location.assign(gmailWebUrl(to));
+            }
+          }, 900);
+          function stop() {
+            if (done) return;
+            done = true;
+            clearTimeout(timer);
+          }
+          window.addEventListener("blur", stop);
+          d.addEventListener("visibilitychange", stop);
+          var frame = d.createElement("iframe");
+          frame.setAttribute("aria-hidden", "true");
+          frame.style.cssText =
+            "position:fixed;left:-9999px;top:0;width:1px;height:1px;opacity:0;pointer-events:none;border:0;";
+          frame.src = url;
+          d.body.appendChild(frame);
+        }
+
+        function handleEmailClick(e) {
+          var el =
+            e.target && e.target.closest
+              ? e.target.closest('a[href*="digihoodstudio@gmail.com"]')
+              : null;
+          if (!el) return;
+          e.preventDefault();
+          var raw = el.getAttribute("href") || "";
+          var to = digihoodEmail;
+          if (/^mailto:/i.test(raw)) {
+            to = raw.replace(/^mailto:/, "").split(/[?#]/)[0] || to;
+          } else if (/view=cm/.test(raw)) {
             try {
-              var to = new URL(a.href).searchParams.get("to");
-              if (to) a.href = "mailto:" + to;
-            } catch (e) {}
+              to = new URL(raw).searchParams.get("to") || to;
+            } catch (err) {}
+          }
+          if (phoneLike) launchGmail(to);
+          else window.open(gmailWebUrl(to), "_blank", "noopener");
+        }
+
+        if (phoneLike) {
+          emailLinks.forEach(function (a) {
+            a.href = "mailto:" + digihoodEmail;
             a.removeAttribute("target");
             a.removeAttribute("rel");
           });
-          d.addEventListener("click", function (e) {
-            var el =
-              e.target && e.target.closest
-                ? e.target.closest('a[href*="mail.google.com/mail/?view=cm"]')
-                : null;
-            if (!el) return;
-            e.preventDefault();
-            try {
-              var to = new URL(el.href).searchParams.get("to");
-              if (to) window.location.href = "mailto:" + to;
-            } catch (err) {}
-          });
         }
+        d.addEventListener("click", handleEmailClick);
 
         var pre = d.getElementById("pre");
         if (pre) pre.remove();
