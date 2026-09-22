@@ -493,7 +493,13 @@
       var emailLinks = document.querySelectorAll(
         'a[href*="mail.google.com/mail/?view=cm"]',
       );
-      if (window.matchMedia("(pointer: coarse)").matches) {
+      var coarse = window.matchMedia("(pointer: coarse)").matches;
+      var hoverOff = !window.matchMedia("(hover: hover)").matches;
+      var hasTouch = "ontouchstart" in window;
+      var mobileUA = /Mobi|Android|iPhone|iPad|iPod|IEMobile|Opera Mini/i.test(
+        navigator.userAgent,
+      );
+      if (coarse || (hasTouch && hoverOff) || mobileUA) {
         emailLinks.forEach(function (a) {
           try {
             var to = new URL(a.href).searchParams.get("to");
@@ -501,6 +507,18 @@
           } catch (e) {}
           a.removeAttribute("target");
           a.removeAttribute("rel");
+        });
+        document.addEventListener("click", function (e) {
+          var el =
+            e.target && e.target.closest
+              ? e.target.closest('a[href*="mail.google.com/mail/?view=cm"]')
+              : null;
+          if (!el) return;
+          e.preventDefault();
+          try {
+            var to = new URL(el.href).searchParams.get("to");
+            if (to) window.location.href = "mailto:" + to;
+          } catch (err) {}
         });
       }
 
