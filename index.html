@@ -59,7 +59,15 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
     <style>
       :root {
         --paper: #1c0509;
@@ -2583,7 +2591,7 @@
             <div class="pf-group">
               <figure class="pf-card" data-reveal>
                 <div class="pf-img has-img">
-                  <img src="port1.png" alt="Project#026" />
+                  <img src="port1.png" alt="Project#026" loading="lazy" decoding="async" />
                 </div>
                 <figcaption class="pf-cap">
                   <span class="pf-name">Project#026</span>
@@ -2591,7 +2599,7 @@
               </figure>
               <figure class="pf-card" data-reveal>
                 <div class="pf-img has-img">
-                  <img src="port2.png" alt="Project#148" />
+                  <img src="port2.png" alt="Project#148" loading="lazy" decoding="async" />
                 </div>
                 <figcaption class="pf-cap">
                   <span class="pf-name">Project#148</span>
@@ -2599,7 +2607,7 @@
               </figure>
               <figure class="pf-card" data-reveal>
                 <div class="pf-img has-img">
-                  <img src="port3.jpg" alt="Project#079" />
+                  <img src="port3.jpg" alt="Project#079" loading="lazy" decoding="async" />
                 </div>
                 <figcaption class="pf-cap">
                   <span class="pf-name">Project#079</span>
@@ -2607,7 +2615,7 @@
               </figure>
               <figure class="pf-card" data-reveal>
                 <div class="pf-img has-img">
-                  <img src="port4.jpg" alt="Project#231" />
+                  <img src="port4.jpg" alt="Project#231" loading="lazy" decoding="async" />
                 </div>
                 <figcaption class="pf-cap">
                   <span class="pf-name">Project#231</span>
@@ -2615,7 +2623,7 @@
               </figure>
               <figure class="pf-card" data-reveal>
                 <div class="pf-img has-img">
-                  <img src="port5.jpg" alt="Project#304" />
+                  <img src="port5.jpg" alt="Project#304" loading="lazy" decoding="async" />
                 </div>
                 <figcaption class="pf-cap">
                   <span class="pf-name">Project#304</span>
@@ -2625,7 +2633,7 @@
             <div class="pf-group" aria-hidden="true">
               <figure class="pf-card">
                 <div class="pf-img has-img">
-                  <img src="port1.png" alt="Project#026" />
+                  <img src="port1.png" alt="Project#026" loading="lazy" decoding="async" />
                 </div>
                 <figcaption class="pf-cap">
                   <span class="pf-name">Project#026</span>
@@ -2633,7 +2641,7 @@
               </figure>
               <figure class="pf-card">
                 <div class="pf-img has-img">
-                  <img src="port2.png" alt="Project#148" />
+                  <img src="port2.png" alt="Project#148" loading="lazy" decoding="async" />
                 </div>
                 <figcaption class="pf-cap">
                   <span class="pf-name">Project#148</span>
@@ -2641,7 +2649,7 @@
               </figure>
               <figure class="pf-card">
                 <div class="pf-img has-img">
-                  <img src="port3.jpg" alt="Project#079" />
+                  <img src="port3.jpg" alt="Project#079" loading="lazy" decoding="async" />
                 </div>
                 <figcaption class="pf-cap">
                   <span class="pf-name">Project#079</span>
@@ -2649,7 +2657,7 @@
               </figure>
               <figure class="pf-card">
                 <div class="pf-img has-img">
-                  <img src="port4.jpg" alt="Project#231" />
+                  <img src="port4.jpg" alt="Project#231" loading="lazy" decoding="async" />
                 </div>
                 <figcaption class="pf-cap">
                   <span class="pf-name">Project#231</span>
@@ -2657,7 +2665,7 @@
               </figure>
               <figure class="pf-card">
                 <div class="pf-img has-img">
-                  <img src="port5.jpg" alt="Project#304" />
+                  <img src="port5.jpg" alt="Project#304" loading="lazy" decoding="async" />
                 </div>
                 <figcaption class="pf-cap">
                   <span class="pf-name">Project#304</span>
@@ -2713,6 +2721,8 @@
                 class="mf-core-logo"
                 src="digilogo.png"
                 alt="Digihood Studio"
+                loading="lazy"
+                decoding="async"
                 onerror="this.classList.add('hide')"
               />
             </div>
@@ -3250,9 +3260,10 @@
       </nav>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"
+      async
+    ></script>
     <script>
       (function () {
         "use strict";
@@ -3697,64 +3708,14 @@
             renderer.dispose();
           });
         }
-        if (!reduced) initParticleField();
-
-        // ---------- GSAP + ScrollTrigger fluid scroll animations ----------
-        function initScrollAnimations() {
-          if (reduced) return;
-          if (typeof gsap === "undefined") {
-            var els = d.querySelectorAll("[data-reveal]");
-            els.forEach(function (el) {
-              el.classList.add("in");
-            });
-            return;
-          }
-          if (typeof ScrollTrigger !== "undefined") {
-            gsap.registerPlugin(ScrollTrigger);
-          }
-
-          gsap.utils
-            .toArray(".feat, .cdetail, .sec-head p, .about-lead, .about-copy")
-            .forEach(function (el) {
-              gsap.fromTo(
-                el,
-                { autoAlpha: 0, y: 42, scale: 0.985, filter: "blur(6px)" },
-                {
-                  autoAlpha: 1,
-                  y: 0,
-                  scale: 1,
-                  filter: "blur(0px)",
-                  duration: 1,
-                  ease: "power3.out",
-                  scrollTrigger: {
-                    trigger: el,
-                    start: "top 82%",
-                  },
-                },
-              );
-            });
-
-          gsap.utils.toArray(".svc").forEach(function (item, i) {
-            gsap.fromTo(
-              item,
-              { autoAlpha: 0, x: -26 },
-              {
-                autoAlpha: 1,
-                x: 0,
-                duration: 0.8,
-                ease: "power2.out",
-                delay: (i % 3) * 0.08,
-                scrollTrigger: {
-                  trigger: item,
-                  start: "top 85%",
-                },
-              },
-            );
-          });
-
-          if (typeof ScrollTrigger !== "undefined") ScrollTrigger.refresh();
+        if (!reduced) {
+          var startParticles = function () {
+            if (typeof THREE === "undefined") return;
+            initParticleField();
+          };
+          if (d.readyState === "complete") startParticles();
+          else window.addEventListener("load", startParticles);
         }
-        if (!reduced && !staticScroll) initScrollAnimations();
 
         // ---------- Magnetic hover micro-interactions ----------
         function bindMagnetic(el, strength) {
